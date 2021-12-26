@@ -7,7 +7,6 @@ import service.CustomerService;
 import service.ReservationService;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Date;
 
@@ -15,9 +14,6 @@ public class HotelResource {
     public static HotelResource hotelResource;
 
     private HotelResource(){}
-
-    Collection<Customer> customers = new HashSet<Customer>();
-    Collection<IRoom> rooms = new HashSet<>();
 
     public static HotelResource getInstance() {
         if (Objects.isNull(hotelResource)){
@@ -29,6 +25,9 @@ public class HotelResource {
     private static final CustomerService customerService =
             CustomerService.getInstance();
 
+    private static final ReservationService reservationService =
+            ReservationService.getInstance();
+
     public Customer getCustomer(String email){
         return customerService.getCustomer(email);
     }
@@ -36,9 +35,6 @@ public class HotelResource {
     public void createACustomer(String email, String firstName, String lastName){
         customerService.addCustomer(email,firstName,lastName);
     }
-
-    private static final ReservationService reservationService =
-            ReservationService.getInstance();
 
     public IRoom getRoom(String roomNumber) {
         return reservationService.getARoom(roomNumber);

@@ -81,6 +81,10 @@ public class ReservationService {
             }return customersReservation;
     }
 
+    public Collection<IRoom> getRooms(){
+        return rooms;
+    }
+
     public void printAllReservation(){
         System.out.println(reservationService);
     }

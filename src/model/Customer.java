@@ -1,5 +1,6 @@
 package model;
 
+import java.security.PublicKey;
 import java.util.regex.Pattern;
 
 public class Customer {
@@ -25,6 +26,10 @@ public class Customer {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getFullName(){
+        return firstName + lastName;
     }
 
     public String getEmail() {
