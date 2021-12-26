@@ -10,7 +10,7 @@ public class CustomerService {
 
     private CustomerService(){}
 
-    Collection<Customer> customers = new HashSet<Customer>();
+    Collection<Customer> customers = new HashSet<>();
 
     public static CustomerService getInstance() {   // check anything in the class or not
         if (Objects.isNull(customerService)){
