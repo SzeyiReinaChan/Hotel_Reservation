@@ -29,7 +29,7 @@ public class Customer {
     }
 
     public String getFullName(){
-        return firstName + lastName;
+        return firstName + " " + lastName;
     }
 
     public String getEmail() {
