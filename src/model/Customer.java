@@ -1,6 +1,5 @@
 package model;
 
-import java.security.PublicKey;
 import java.util.regex.Pattern;
 
 public class Customer {
