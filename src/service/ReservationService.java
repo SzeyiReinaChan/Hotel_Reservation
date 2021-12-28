@@ -85,9 +85,7 @@ public class ReservationService {
         return rooms;
     }
 
-    public void printAllReservation(){
+    public static printAllReservation(){
         System.out.println(reservationService);
     }
-
-
 }
