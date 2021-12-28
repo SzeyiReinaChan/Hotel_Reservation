@@ -29,6 +29,7 @@ public class CustomerService {
             if (customerEmail.equals(currentCustomer.getEmail())){
                 return currentCustomer;
             }
+            System.out.println("Customer does not exist.");
             return null;
         }
         return null;
