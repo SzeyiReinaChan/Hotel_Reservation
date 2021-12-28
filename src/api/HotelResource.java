@@ -9,6 +9,7 @@ import service.ReservationService;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class HotelResource {
     public static HotelResource hotelResource;
@@ -28,27 +29,33 @@ public class HotelResource {
     private static final ReservationService reservationService =
             ReservationService.getInstance();
 
-    public Customer getCustomer(String email){
+    private static final String emailRegex = "^(.+)@(.+).com$";
+    private static final Pattern pattern = Pattern.compile(emailRegex);
+
+    public static Customer getCustomer(String email){
+        if (!pattern.matcher(email).matches()){
+            throw new IllegalArgumentException("Invalid email");
+        }
         return customerService.getCustomer(email);
     }
 
-    public void createACustomer(String email, String firstName, String lastName){
+    public static void createACustomer(String email, String firstName, String lastName){
         customerService.addCustomer(email,firstName,lastName);
     }
 
-    public IRoom getRoom(String roomNumber) {
+    public static IRoom getRoom(String roomNumber) {
         return reservationService.getARoom(roomNumber);
     }
 
-    public Reservation bookARoom(String customerEmail, IRoom room, Date checkInDate, Date checkOutDate){
+    public static Reservation bookARoom(String customerEmail, IRoom room, Date checkInDate, Date checkOutDate){
         return reservationService.reserveARoom(customerService.getCustomer(customerEmail), room, checkInDate, checkOutDate);
     }
 
-    public Collection<Reservation> getCustomersReservations(String customerEmail){
+    public static Collection<Reservation> getCustomersReservations(String customerEmail){
         return reservationService.getCustomersReservation(customerService.getCustomer(customerEmail));
     }
 
-    public Collection<IRoom> findARoom (Date checkInDate, Date checkOutDate){
+    public static Collection<IRoom> findARoom (Date checkInDate, Date checkOutDate){
         return reservationService.findRooms(checkInDate, checkOutDate);
     }
 }
