@@ -4,18 +4,15 @@ import model.Customer;
 import model.IRoom;
 import model.Reservation;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
 public class ReservationService {
     public static  ReservationService reservationService;
 
     private ReservationService(){}
 
-    Collection<IRoom> rooms = new HashSet<>();
-    Collection<Reservation> reservations = new HashSet<>();
+    static Collection<IRoom> rooms = new HashSet<>();
+    static Collection<Reservation> reservations = new HashSet<>();
 
     public static ReservationService getInstance() {
         if (Objects.isNull(reservationService)){
@@ -24,7 +21,7 @@ public class ReservationService {
         return reservationService;
     }
 
-    public void addRoom(IRoom room){
+    public static void addRoom(IRoom room){
         rooms.add(room);
     }
 
@@ -38,11 +35,13 @@ public class ReservationService {
         return null;
     }
 
-    public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
+    public void reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
         Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
-        System.out.println("Room is reserved");
-        reservations.add(reservation);
-        return reservation;
+        Collection<Reservation> makeReservations = getCustomersReservation(customer);
+        if (makeReservations == null){
+            makeReservations = new LinkedList<>();
+        }
+        makeReservations.add(reservation);
     }
 
     public Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
@@ -85,7 +84,7 @@ public class ReservationService {
         return rooms;
     }
 
-    public static printAllReservation(){
-        System.out.println(reservationService);
+    public static Collection<Reservation> getAllReservations() {
+        return new HashSet<>(reservations);
     }
 }
