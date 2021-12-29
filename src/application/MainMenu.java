@@ -172,16 +172,21 @@ public class MainMenu {
         String firstName = scanner.nextLine();
         System.out.println("Last name");
         String lastName = scanner.nextLine();
+        boolean accountCreated = false;
         try {
             System.out.println("Please Enter Email: (format: name@domain.com)");
             String email = scanner.nextLine();
             HotelResource.createACustomer(email, firstName, lastName);
+            accountCreated = true;
         }
         catch (IllegalArgumentException ex) {
             System.out.println(ex.getLocalizedMessage());
+            createAnAccount();
         }
-        System.out.println("Account Created Successfully");
-        actions();
+        if (accountCreated){
+            System.out.println("Account Created Successfully");
+            actions();
+        }
     }
 
     public static void adminMenu(){
