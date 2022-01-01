@@ -8,7 +8,7 @@ public class FreeRoom extends Room {
 
     @Override
     public String toString(){
-        return "Free Room Price : " + super.toString();
+        return super.toString();
     }
 
 }
