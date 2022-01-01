@@ -11,8 +11,8 @@ public class ReservationService {
 
     private ReservationService(){}
 
-    static Collection<IRoom> rooms = new HashSet<>();
-    static Collection<Reservation> reservations = new HashSet<>();
+    public static Collection<IRoom> rooms = new HashSet<>();
+    public static Collection<Reservation> reservations = new HashSet<>();
 
     public static ReservationService getInstance() {
         if (Objects.isNull(reservationService)){
@@ -30,18 +30,18 @@ public class ReservationService {
             if (roomId.equals(room.getRoomNumber())){
                 return room;
             }
-            return null;
         }
         return null;
     }
 
-    public void reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
+    public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
         Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
-        Collection<Reservation> makeReservations = getCustomersReservation(customer);
-        if (makeReservations == null){
-            makeReservations = new LinkedList<>();
-        }
-        makeReservations.add(reservation);
+//        Collection<Reservation> makeReservations = getCustomersReservation(customer);
+//        if (makeReservations == null){
+//            makeReservations = new LinkedList<>();
+//        }
+        reservations.add(reservation);
+        return reservation;
     }
 
     public Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
@@ -85,6 +85,9 @@ public class ReservationService {
     }
 
     public static Collection<Reservation> getAllReservations() {
+        for (Reservation reservation : reservations){
+            System.out.println(reservation);
+        }
         return new HashSet<>(reservations);
     }
 }
