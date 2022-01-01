@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e919f37-1b27-401d-ab20-a9e50145fd23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/api/AdminResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/api/AdminResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/api/HotelResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/api/HotelResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/application/AdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/application/AdminMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/application/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/application/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/service/ReservationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/AdminResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/AdminResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/HotelResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/HotelResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_reservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_reservation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/api/AdminResource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/api/HotelResource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/application/AdminMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/application/MainMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/FreeRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/IRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/RoomType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/model/Tester.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/service/CustomerService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/AdminMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/FreeRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FreeRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ReservationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +62,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.MainMenu">
@@ -85,6 +94,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.HotelResource" />
+      <item itemvalue="Application.MainMenu" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainMenu" />
