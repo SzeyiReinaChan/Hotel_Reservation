@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.Calendar;
 
 public class AdminMenu {
+    private static final AdminResource adminResource = AdminResource.getInstance();
 
     public static void menu() {
         System.out.println("\nWelcome to the Admin Menu");
@@ -68,54 +69,38 @@ public class AdminMenu {
     }
 
     public static void seeAllCustomers() {
-        Collection<Customer> allCustomers = AdminResource.getAllCustomers();
+        Collection<Customer> allCustomers = adminResource.getAllCustomers();
         if (allCustomers.isEmpty()){
             System.out.println("There are no customers in the system");
         } else{
             for (Customer customer : allCustomers){
                 System.out.println(customer.toString());
             }
-        }
+        }actions();
     }
 
     public static void seeAllRooms(){
-        Collection<IRoom> allRooms = AdminResource.getAllRooms();
+        Collection<IRoom> allRooms = adminResource.getAllRooms();
         if (allRooms.isEmpty()){
             System.out.println("There are no rooms in the system");
         } else{
             for (IRoom room : allRooms){
                 System.out.println(room.toString());
             }
-        }
+        }actions();
     }
 
     public static void seeAllReservations() {
-        Collection<Reservation> allReservations = AdminResource.displayAllReservations();
+        Collection<Reservation> allReservations = adminResource.displayAllReservations();
         if (allReservations.isEmpty()){
             System.out.println("There are no reservations in the system");
         } else{
             for (Reservation reservation : allReservations){
-                System.out.println(reservation.toString());
+                System.out.println(reservation);
             }
         }
     }
 
-//    public static void getRoomNumber(Scanner scanner){
-//        String roomNumber = null;
-//        boolean validNumber = false;
-//        while(!validNumber) {
-//            System.out.println("Enter Room Number");
-//            String roomNumber = scanner.nextLine();
-//            IRoom checkRoomNumber = HotelResource.getRoom(roomNumber);
-//            if (checkRoomNumber == null){
-//                validNumber = true;
-//            }
-//        }
-//    }
-//
-//
-//
-//
     public static void addARoom() {
         System.out.println("Add room");
     }
@@ -136,10 +121,10 @@ public class AdminMenu {
         Date checkOutDate = null;
 
         calendar.setTime(today);
-        calendar.add(Calendar.DATE, 1);
+        calendar.add(Calendar.DATE, 2);
         checkInDate = calendar.getTime();
         calendar.setTime(checkInDate);
-        calendar.add(Calendar.DATE, 10);
+        calendar.add(Calendar.DATE, 3);
         checkOutDate = calendar.getTime();
         HotelResource.bookARoom("a@email.com", HotelResource.getRoom("1"), checkInDate, checkOutDate);
 
@@ -160,5 +145,6 @@ public class AdminMenu {
         HotelResource.bookARoom("c@email.com", HotelResource.getRoom("1"), checkInDate, checkOutDate);
 
         System.out.println("Test data added");
+        actions();
     }
 }
