@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reservation {
@@ -32,7 +33,9 @@ public class Reservation {
     }
 
     public String toString(){
-        return "Customer: " + customer + " Room: " + room +
-                " Check In Date : " + checkInDate + "Check Out Date: " + checkOutDate;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return "Customer Info: " + customer + "\nRoom Info: " + room +
+                "\nCheck In Date : " + simpleDateFormat.format(checkInDate) +
+                "\nCheck Out Date: " + simpleDateFormat.format(checkOutDate);
     }
 }
