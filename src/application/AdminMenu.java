@@ -8,10 +8,8 @@ import model.Room;
 import model.Reservation;
 import model.RoomType;
 
-import java.util.Collection;
-import java.util.Scanner;
-import java.util.Date;
-import java.util.Calendar;
+import java.security.PublicKey;
+import java.util.*;
 
 public class AdminMenu {
     private static final AdminResource adminResource = AdminResource.getInstance();
@@ -94,15 +92,84 @@ public class AdminMenu {
         Collection<Reservation> allReservations = adminResource.displayAllReservations();
         if (allReservations.isEmpty()){
             System.out.println("There are no reservations in the system");
-        } else{
-            for (Reservation reservation : allReservations){
-                System.out.println(reservation);
-            }
+//        } else{
+//            for (Reservation reservation : allReservations){
+//                System.out.println(reservation);
+//            }
         }
     }
 
+    public static String roomNumber(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter room number: ");
+        Integer roomNumber = 0;
+        try{
+            roomNumber = Integer.valueOf(scanner.nextLine());
+            IRoom checkRoomNumber = HotelResource.getRoom(String.valueOf(roomNumber));
+            if(checkRoomNumber != null){
+                System.out.println("This room already exists. Please enter another room number");
+                roomNumber = null;
+                roomNumber();
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter valid room number");
+            roomNumber();
+        }
+        return String.valueOf(roomNumber);
+    }
+
+    public static Double roomPrice(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter room price: ");
+        double roomPrice = 0.00;
+        try{
+            roomPrice = Double.parseDouble(scanner.nextLine());
+            if (roomPrice < 0.00){
+                System.out.println("Please enter valid price");
+                roomPrice();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter valid price");
+            roomPrice();
+        }
+        return roomPrice;
+    }
+
+    public static RoomType roomType(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter room type: (1 for SINGLE OR 2 for DOUBLE) ");
+        RoomType roomType = null;
+        try{
+            String roomTypeNumber = scanner.nextLine();
+            if (Objects.equals(roomTypeNumber, "1")){
+                roomType = RoomType.valueOf("SINGLE");
+                System.out.println(roomType);
+            } else if (Objects.equals(roomTypeNumber, "2")){
+                roomType = RoomType.valueOf("DOUBLE");
+            } else {
+                System.out.println("Please enter 1 for SINGLE OR 2 for DOUBLE");
+                roomType();
+            }
+        }
+        catch (Exception ex) {
+            System.out.println("Please enter a valid room type");
+            roomType();
+        }
+        return roomType;
+    }
+
     public static void addARoom() {
-        System.out.println("Add room");
+        String roomNumber = roomNumber();
+        Double roomPrice = roomPrice();
+        RoomType roomType = roomType();
+        Room newRoom = new Room(roomNumber, roomPrice, roomType);
+        AdminResource.addRoom(newRoom);
+
+        System.out.println("Room Number: " + roomNumber);
+        System.out.println("Room Price: " + roomPrice);
+        System.out.println("Room Type: " + roomType);
+        System.out.println("Room Added to the system");
+        actions();
     }
 
     public static void testData() {
