@@ -157,16 +157,6 @@ public class MainMenu {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What room would you like to reserve?");
         String roomNumber = scanner.next();
-
-        try{
-            if !(roomNumber in )
-            }
-        } catch (Exception e) {
-            System.out.println("Please enter valid room number");
-            pickRoom();
-        }
-
-
         return HotelResource.getRoom(roomNumber);
     }
 
