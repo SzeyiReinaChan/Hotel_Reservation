@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e919f37-1b27-401d-ab20-a9e50145fd23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_reservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_reservation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/AdminMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ReservationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
