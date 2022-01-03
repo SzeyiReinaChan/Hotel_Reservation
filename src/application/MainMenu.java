@@ -160,36 +160,55 @@ public class MainMenu {
         return HotelResource.getRoom(roomNumber);
     }
 
+    public static void alternativeDate(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Would you like to check other date?");
+        String otherDate = scanner.next().toLowerCase();
+        switch (otherDate) {
+            case "y":
+                Date checkInDate = checkInDate();
+                Date checkOutDate = checkOutDate(checkInDate);
+                Collection<IRoom> availableRooms = HotelResource.findARoom(checkInDate, checkOutDate);
+                reserveRoom(availableRooms, checkInDate, checkOutDate);
+            case "n":
+                System.out.println("Directing back to main menu");
+                actions();
+        }
+    }
+
+    public static void reserveRoom(Collection<IRoom> availableRooms, Date checkInDate, Date checkOutDate){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        if (availableRooms.isEmpty()) {
+            System.out.println("Currently no available room");
+            alternativeDate();
+        } else {
+            System.out.println("Available room: " + availableRooms);
+
+            String email = bookRoom();
+            IRoom pickedRoom = pickRoom();
+
+            HotelResource.bookARoom(email,pickedRoom,checkInDate,checkOutDate);
+            System.out.println("Email: " + email);
+            System.out.println(pickedRoom);
+            System.out.println("Check-In Date: " + simpleDateFormat.format(checkInDate));
+            System.out.println("Check-Out Date: " + simpleDateFormat.format(checkOutDate));
+            System.out.println("Room is reserved");
+
+            actions();
+        }
+    }
+
     public static void findAndReserveARoom() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Do you have an account with us? (y/n):");
         String hasAccount = scanner.next().toLowerCase();
         switch (hasAccount) {
             case "y":
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
                 Date checkInDate = checkInDate();
                 Date checkOutDate = checkOutDate(checkInDate);
 
                 Collection<IRoom> availableRooms = HotelResource.findARoom(checkInDate, checkOutDate);
-
-                if (availableRooms.isEmpty()) {
-                    System.out.println("Currently no available room");
-                    return;
-                } else {
-                    System.out.println("Available room: " + availableRooms);
-
-                    String email = bookRoom();
-                    IRoom pickedRoom = pickRoom();
-
-                    HotelResource.bookARoom(email,pickedRoom,checkInDate,checkOutDate);
-                    System.out.println("Email: " + email);
-                    System.out.println(pickedRoom);
-                    System.out.println("Check-In Date: " + simpleDateFormat.format(checkInDate));
-                    System.out.println("Check-Out Date: " + simpleDateFormat.format(checkOutDate));
-                    System.out.println("Room is reserved");
-
-                    actions();
-                }
+                reserveRoom(availableRooms, checkInDate, checkOutDate);
             case "n":
                 System.out.println("Please create an account before booking.");
                 createAnAccount();
