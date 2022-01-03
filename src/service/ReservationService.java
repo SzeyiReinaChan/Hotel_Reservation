@@ -34,13 +34,14 @@ public class ReservationService {
         return null;
     }
 
+    static void extendReservations(Reservation reservation)
+    {
+        reservations.add(reservation);
+    }
+
     public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
         Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
-//        Collection<Reservation> makeReservations = getCustomersReservation(customer);
-//        if (makeReservations == null){
-//            makeReservations = new LinkedList<>();
-//        }
-        reservations.add(reservation);
+        extendReservations(reservation);
         return reservation;
     }
 
@@ -60,15 +61,14 @@ public class ReservationService {
                             || (checkInDate.after(reservation.getCheckInDate()) && (checkOutDate.after(reservation.getCheckOutDate()))))){
                         availableRooms.add(room);
                     }
-                    else{
-                        if (room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())){
-                            availableRooms.remove(room);
-                        }
-                    }
+//                else{
+//                    if (room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())){
+//                        availableRooms.remove(room);
+//                        }
+//                    }
                 }
             }
-        } System.out.println(availableRooms);
-        return availableRooms;
+        }return availableRooms;
     }
 
     public Collection<Reservation> getCustomersReservation(Customer customer){

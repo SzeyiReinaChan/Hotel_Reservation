@@ -160,9 +160,20 @@ public class MainMenu {
         return HotelResource.getRoom(roomNumber);
     }
 
+//    public static IRoom roomNumber(Collection<IRoom> availableRooms){
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Which room would you like to reserve?");
+//        String roomNumber = scanner.next();
+//        IRoom requestedRoom = HotelResource.getRoom(roomNumber);
+//        if (!availableRooms.contains(requestedRoom)){
+//            alternativeDate();
+//        }
+//        return requestedRoom;
+//    }
+
     public static void alternativeDate(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Would you like to check other date?");
+        System.out.println("Would you like to check other date? (y/n)");
         String otherDate = scanner.next().toLowerCase();
         switch (otherDate) {
             case "y":
@@ -173,6 +184,7 @@ public class MainMenu {
             case "n":
                 System.out.println("Directing back to main menu");
                 actions();
+                break;
         }
     }
 
@@ -182,7 +194,8 @@ public class MainMenu {
             System.out.println("Currently no available room");
             alternativeDate();
         } else {
-            System.out.println("Available room: " + availableRooms);
+            System.out.println("Available room: ");
+            availableRooms.forEach(System.out::println);
 
             String email = bookRoom();
             IRoom pickedRoom = pickRoom();
