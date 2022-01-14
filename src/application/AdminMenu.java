@@ -96,7 +96,7 @@ public class AdminMenu {
 //            for (Reservation reservation : allReservations){
 //                System.out.println(reservation);
 //            }
-        }
+        }actions();
     }
 
     public static String roomNumber(){

@@ -7,7 +7,7 @@ import model.Reservation;
 import java.util.*;
 
 public class ReservationService {
-    public static  ReservationService reservationService;
+    public static  ReservationService reservationService = null;
 
     private ReservationService(){}
 
@@ -30,54 +30,64 @@ public class ReservationService {
             if (roomId.equals(room.getRoomNumber())){
                 return room;
             }
-        }
-        return null;
+        } return null;
     }
 
-    static void extendReservations(Reservation reservation)
-    {
-        reservations.add(reservation);
-    }
-
-    public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
+    public static Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate){
         Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
-        extendReservations(reservation);
+        reservations.add(reservation);
         return reservation;
     }
 
-    public Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
+    private static void fixOutput(Collection<IRoom> availableRooms, Date checkInDate, Date checkOutDate){
+        for(Reservation reservation : reservations) {
+            for (IRoom room : rooms) {
+                if ((room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())) &&
+                        !((checkInDate.before(reservation.getCheckInDate()))
+                                && (checkOutDate.before(reservation.getCheckOutDate())))
+                        || ((checkInDate.after(reservation.getCheckInDate()) &&
+                        ((checkOutDate.after(reservation.getCheckOutDate()))))))
+                    availableRooms.remove(room);
+            }
+        }
+    }
+
+    public static Collection<IRoom> findRooms(Date checkInDate, Date checkOutDate){
         Collection<IRoom> availableRooms = new HashSet<>();
 
-        if (reservations.isEmpty()){
+        if (reservations.size() == 0){
             availableRooms = rooms;
             return availableRooms;
         }
         else{
-            for(IRoom room:rooms){
-                for(Reservation reservation : reservations){
-                    //check to see if the room is available, if so add to available list, if not remove
+            for(Reservation reservation : reservations){
+                for(IRoom room:rooms) {
                     if((room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())) &&
-                    ((checkInDate.before(reservation.getCheckInDate()) && checkOutDate.before(reservation.getCheckOutDate()))
-                            || (checkInDate.after(reservation.getCheckInDate()) && (checkOutDate.after(reservation.getCheckOutDate()))))){
+                            ((checkInDate.before(reservation.getCheckInDate()))
+                                    && (checkOutDate.before(reservation.getCheckOutDate())))
+                            || ((checkInDate.after(reservation.getCheckInDate()) &&
+                            ((checkOutDate.after(reservation.getCheckOutDate())))))
+                            || (!reservation.getRoom().getRoomNumber().contains(room.getRoomNumber()))){
                         availableRooms.add(room);
+                    } else if (room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())){
+                        availableRooms.remove(room);
                     }
-//                else{
-//                    if (room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())){
-//                        availableRooms.remove(room);
-//                        }
-//                    }
                 }
             }
-        }return availableRooms;
+        }
+        fixOutput(availableRooms, checkInDate, checkOutDate);
+        return availableRooms;
     }
+
+
 
     public Collection<Reservation> getCustomersReservation(Customer customer){
         Collection<Reservation> customersReservation = new HashSet<>();
-            for(Reservation reservation : reservations){
-                if(reservation.getCustomer().equals(customer)){
-                    customersReservation.add(reservation);
-                }
-            }return customersReservation;
+        for(Reservation reservation : reservations){
+            if(reservation.getCustomer().equals(customer)){
+                customersReservation.add(reservation);
+            }
+        } return customersReservation;
     }
 
     public Collection<IRoom> getRooms(){
@@ -87,7 +97,6 @@ public class ReservationService {
     public static Collection<Reservation> getAllReservations() {
         for (Reservation reservation : reservations){
             System.out.println(reservation);
-        }
-        return new HashSet<>(reservations);
+        } return new HashSet<>(reservations);
     }
 }

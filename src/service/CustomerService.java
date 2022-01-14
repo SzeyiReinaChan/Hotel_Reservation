@@ -29,7 +29,6 @@ public class CustomerService {
             if (customerEmail.equals(currentCustomer.getEmail())){
                 return currentCustomer;
             }
-            return null;
         }
         return null;
     }

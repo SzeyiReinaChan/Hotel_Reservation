@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 public class HotelResource {
     public static HotelResource hotelResource;
+    public static ReservationService reservationService = ReservationService.getInstance();
 
     private HotelResource(){}
 
@@ -26,8 +27,6 @@ public class HotelResource {
     private static final CustomerService customerService =
             CustomerService.getInstance();
 
-    private static final ReservationService reservationService =
-            ReservationService.getInstance();
 
     private static final String emailRegex = "^(.+)@(.+).com$";
     private static final Pattern pattern = Pattern.compile(emailRegex);
@@ -47,8 +46,9 @@ public class HotelResource {
         return reservationService.getARoom(roomNumber);
     }
 
-    public static void bookARoom(String customerEmail, IRoom room, Date checkInDate, Date checkOutDate){
-        reservationService.reserveARoom(customerService.getCustomer(customerEmail), room, checkInDate, checkOutDate);
+    public static Reservation bookARoom(String customerEmail, IRoom room, Date checkInDate, Date checkOutDate){
+        Customer customer = CustomerService.getInstance().getCustomer(customerEmail);
+        return reservationService.reserveARoom(customer,room,checkInDate,checkOutDate);
     }
 
     public static Collection<Reservation> getCustomersReservations(String customerEmail){
@@ -56,6 +56,8 @@ public class HotelResource {
     }
 
     public static Collection<IRoom> findARoom (Date checkInDate, Date checkOutDate){
+        Collection<IRoom> rooms = reservationService.findRooms(checkInDate,checkOutDate);
+        if (rooms == null) return null;
         return reservationService.findRooms(checkInDate, checkOutDate);
     }
 }
