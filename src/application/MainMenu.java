@@ -211,11 +211,12 @@ public class MainMenu {
     }
 
     public static void seeMyReservation(){
-        Scanner scanEmail = new Scanner(System.in);
-        System.out.println("Please Enter Email: (format: name@domain.com)");
-        String email = scanEmail.nextLine();
-        Customer customer = HotelResource.getCustomer(email);
         try {
+            Scanner scanEmail = new Scanner(System.in);
+            System.out.println("Please Enter Email: (format: name@domain.com)");
+            String email = scanEmail.nextLine();
+            Customer customer = HotelResource.getCustomer(email);
+
             if (Objects.isNull(customer)) {
                 System.out.println("Customer has no account with us. Please create account.");
                 actions();
@@ -234,6 +235,7 @@ public class MainMenu {
         }
         catch(Exception IllegalArgumentException){
             System.out.println("Please use format (name@domain.com) and try again");
+            seeMyReservation();
         }
     }
 

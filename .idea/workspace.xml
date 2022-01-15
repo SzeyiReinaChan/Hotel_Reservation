@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e919f37-1b27-401d-ab20-a9e50145fd23" name="Changes" comment="Update ReservationService.java" />
+    <list default="true" id="1e919f37-1b27-401d-ab20-a9e50145fd23" name="Changes" comment="Update ReservationService.java">
+      <change beforePath="$PROJECT_DIR$/src/application/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MainMenu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -25,7 +25,6 @@ public class AdminMenu {
         System.out.println("Please select a number for the menu option");
     }
 
-
     public static void actions(){
         menu();
         Scanner scanner = new Scanner(System.in);
@@ -53,15 +52,16 @@ public class AdminMenu {
                         System.out.println("Going back to main menu");
                         MainMenu.actions();
                         break;
-                    case 6:
-                        testData();
-                        break;
+//                    case 6:
+//                        testData();
+//                        actions();
+//                        break;
                     default:
                         System.out.println("Invalid Input");
                 }
             }
             catch (Exception ex) {
-                System.out.println("Please select 1 - 6 from the menu option");
+                System.out.println("Please select 1 - 5 from the menu option");
             }
         }
     }
@@ -92,10 +92,6 @@ public class AdminMenu {
         Collection<Reservation> allReservations = adminResource.displayAllReservations();
         if (allReservations.isEmpty()){
             System.out.println("There are no reservations in the system");
-//        } else{
-//            for (Reservation reservation : allReservations){
-//                System.out.println(reservation);
-//            }
         }actions();
     }
 
@@ -212,6 +208,5 @@ public class AdminMenu {
         HotelResource.bookARoom("c@email.com", HotelResource.getRoom("1"), checkInDate, checkOutDate);
 
         System.out.println("Test data added");
-        actions();
     }
 }
