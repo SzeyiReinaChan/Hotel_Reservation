@@ -111,7 +111,7 @@ public class MainMenu {
     }
 
 
-    public static String askForEmail(){
+    public static String askForEmail() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Email: (format: name@domain.com)");
         String email = scanner.next();

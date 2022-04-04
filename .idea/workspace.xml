@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e919f37-1b27-401d-ab20-a9e50145fd23" name="Changes" comment="Update ReservationService.java">
-      <change beforePath="$PROJECT_DIR$/src/application/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/AdminMenu.java" afterDir="false" />
+    <list default="true" id="1e919f37-1b27-401d-ab20-a9e50145fd23" name="Changes" comment="Fixed some bugs (MainMenu and AdminMenu)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/application/AdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/application/AdminMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/application/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/application/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hotel_reservation/service/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hotel_reservation/service/ReservationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ReservationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +53,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunManager" selected="Application.MainMenu">
     <configuration name="HotelResource" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -130,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642176165077</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed some bugs (MainMenu and AdminMenu)">
+      <created>1642279821037</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1642279821037</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,7 +157,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update ReservationService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update ReservationService.java" />
+    <MESSAGE value="Fixed some bugs (MainMenu and AdminMenu)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some bugs (MainMenu and AdminMenu)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

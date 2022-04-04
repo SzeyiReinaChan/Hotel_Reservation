@@ -80,7 +80,6 @@ public class ReservationService {
     }
 
 
-
     public Collection<Reservation> getCustomersReservation(Customer customer){
         Collection<Reservation> customersReservation = new HashSet<>();
         for(Reservation reservation : reservations){
