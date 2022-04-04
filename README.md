@@ -1,4 +1,4 @@
-# Hotel Reservation Application Project
+# Hotel Reservation Application Backend Project
 The hotel reservation application will allow customers to find and book a hotel room based on room availability. This project will demonstrate the abilities to design classes using OOP, organize and process data with collections, and use common Java types.
 
 ## APP FEATURES:
